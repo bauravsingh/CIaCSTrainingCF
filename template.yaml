@@ -8,7 +8,7 @@ Description: >-
   for the AWS resources used if you create a stack from this template.
 Parameters:
   KeyName:
-    Description: Name of an existing EC2 KeyPair to enable SSH access to the instances
+    Description: Name of an existing EC2 KeyPair to enable SSH 
     Type: 'AWS::EC2::KeyPair::KeyName'
     ConstraintDescription: must be the name of an existing EC2 KeyPair.
   InstanceType:
@@ -72,7 +72,7 @@ Parameters:
       - cg1.4xlarge
     ConstraintDescription: must be a valid EC2 instance type.
   SSHLocation:
-    Description: The IP address range that can be used to SSH to the EC2 instances
+    Description: The IP address range that can be used to SSH 
     Type: String
     MinLength: '9'
     MaxLength: '18'
@@ -86,7 +86,7 @@ Parameters:
     MinLength: '1'
     MaxLength: '64'
     AllowedPattern: '[a-zA-Z][a-zA-Z0-9]*'
-    ConstraintDescription: must begin with a letter and contain only alphanumeric characters.
+    ConstraintDescription: must begin with a letter 
   DBUser:
     NoEcho: 'true'
     Description: The WordPress database admin account username
@@ -94,7 +94,7 @@ Parameters:
     MinLength: '1'
     MaxLength: '16'
     AllowedPattern: '[a-zA-Z][a-zA-Z0-9]*'
-    ConstraintDescription: must begin with a letter and contain only alphanumeric characters.
+    ConstraintDescription: must begin with a letter 
   DBPassword:
     NoEcho: 'true'
     Description: The WordPress database admin account password
@@ -424,7 +424,7 @@ Resources:
         install_cfn:
           files:
             /etc/cfn/cfn-hup.conf:
-              content: !Join 
+              content: !Join
                 - ''
                 - - |
                     [main]
@@ -440,7 +440,7 @@ Resources:
               owner: root
               group: root
             /etc/cfn/hooks.d/cfn-auto-reloader.conf:
-              content: !Join 
+              content: !Join
                 - ''
                 - - |
                     [cfn-auto-reloader-hook]
@@ -482,7 +482,7 @@ Resources:
             /var/www/html: 'http://wordpress.org/latest.tar.gz'
           files:
             /tmp/setup.mysql:
-              content: !Join 
+              content: !Join
                 - ''
                 - - 'CREATE DATABASE '
                   - !Ref DBName
@@ -506,7 +506,7 @@ Resources:
               owner: root
               group: root
             /tmp/create-wp-config:
-              content: !Join 
+              content: !Join
                 - ''
                 - - |
                     #!/bin/bash -xe
